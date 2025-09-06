@@ -1,33 +1,47 @@
 pipeline {
     agent any
 
+    environment {
+        IMAGE_NAME = "myapp"
+        CONTAINER_NAME = "myapp_container"
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/sharmaaman52/git_repo.git'
+                git 'https://github.com/sharmaaman52/git_repo.git'
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
                 sh '''
-                  echo "Building project..."
-                  mkdir -p target
-                  echo "Hello Jenkins Pipeline" > target/output.txt
+                  echo "Building Docker image..."
+                  docker build -t $IMAGE_NAME .
                 '''
             }
         }
 
-        stage('Test') {
+        stage('Run Docker Container') {
             steps {
-                sh 'echo "Running tests..."'
+                sh '''
+                  echo "Stopping old container (if exists)..."
+                  docker stop $CONTAINER_NAME || true
+                  docker rm $CONTAINER_NAME || true
+
+                  echo "Running new container..."
+                  docker run -d --name $CONTAINER_NAME -p 3000:3000 $IMAGE_NAME
+                '''
             }
         }
+    }
 
-        stage('Archive Artifacts') {
-            steps {
-                archiveArtifacts artifacts: 'target/*.txt', fingerprint: true
-            }
+    post {
+        success {
+            echo 'Docker container is up and running!'
+        }
+        failure {
+            echo 'Build failed. Check logs.'
         }
     }
 }
