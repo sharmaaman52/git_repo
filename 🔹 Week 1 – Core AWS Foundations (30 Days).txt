@@ -1,0 +1,170 @@
+🔹 Week 1 – Core AWS Foundations (Day 1–5)
+
+Day 1:
+
+Learn AWS Global Infrastructure (Regions, AZs, Edge locations).
+
+Setup Free Tier account.
+
+Create IAM User (with programmatic + console access).
+
+Install & configure AWS CLI.
+
+Day 2:
+
+IAM: Users, Groups, Roles, Policies, MFA.
+
+Hands-on: Create IAM role for EC2.
+
+Day 3:
+
+EC2: Launch Linux instance, connect with SSH, assign Elastic IP.
+
+Explore instance types & pricing models (On-demand, Spot, Reserved).
+
+Day 4:
+
+EBS: Create, attach, detach, resize volumes.
+
+Take EBS snapshot & restore it.
+
+Day 5:
+
+VPC basics: Create VPC, Subnets (Public/Private), Route Table, Internet Gateway.
+
+Deploy EC2 inside custom VPC.
+
+🔹 Week 2 – Storage & Databases (Day 6–10)
+
+Day 6:
+
+S3 basics: Buckets, Upload/Download files, Versioning, Encryption.
+
+Enable Bucket Policies & IAM permissions.
+
+Day 7:
+
+S3 advanced: Lifecycle rules, Static Website Hosting, Cross-Region Replication.
+
+Hands-on: Host static website on S3.
+
+Day 8:
+
+EFS: Create file system, mount on EC2.
+
+Compare EBS vs EFS vs S3.
+
+Day 9:
+
+RDS: Launch MySQL/Postgres instance, connect from EC2.
+
+Enable Multi-AZ, Read Replica (conceptual + demo).
+
+Day 10:
+
+DynamoDB basics: Tables, Partition Key, Sort Key.
+
+Hands-on: Store & query data with DynamoDB.
+
+🔹 Week 3 – Networking, Scaling & Monitoring (Day 11–15)
+
+Day 11:
+
+Elastic Load Balancer: Classic vs ALB vs NLB.
+
+Hands-on: Create ALB, attach EC2 targets.
+
+Day 12:
+
+Auto Scaling Groups (ASG): Launch config, Scaling policies.
+
+Hands-on: Setup ASG with ALB.
+
+Day 13:
+
+CloudWatch: Metrics, Logs, Alarms.
+
+Hands-on: CPU Alarm for EC2.
+
+Day 14:
+
+CloudTrail: Enable, check API activity logs.
+
+Trusted Advisor (Free checks).
+
+Day 15:
+
+Advanced VPC: NAT Gateway, Bastion Host, VPC Peering, Endpoints.
+
+🔹 Week 4 – DevOps, Serverless & Final Project (Day 16–30)
+
+Day 16:
+
+AWS CLI advanced commands.
+
+Hands-on: Launch EC2 + S3 using CLI.
+
+Day 17:
+
+CloudFormation basics: Create simple stack for EC2 + Security Group.
+
+Day 18:
+
+Elastic Beanstalk: Deploy a sample web app.
+
+Day 19:
+
+Systems Manager: Parameter Store & Session Manager.
+
+Hands-on: Connect EC2 without SSH key.
+
+Day 20:
+
+Lambda basics: Create & test function.
+
+Trigger Lambda from S3 event.
+
+Day 21:
+
+API Gateway: REST API with Lambda backend.
+
+Day 22:
+
+SNS & SQS: Create topic, subscription, queue.
+
+Integrate with Lambda.
+
+Day 23:
+
+EventBridge basics (event rules + Lambda trigger).
+
+Day 24:
+
+AWS Backup service.
+
+Simulate EBS/RDS backup & restore.
+
+Day 25:
+
+Cost Explorer & Budgets.
+
+Hands-on: Create budget alert email.
+
+Day 26:
+
+KMS: Encrypt S3 bucket & EBS volume.
+
+IAM Best Practices (least privilege).
+
+Day 27–29 (Final Project):
+👉 Build a 2-Tier Web Application
+
+VPC (public & private subnet)
+
+EC2 (Web Tier) with ALB + Auto Scaling
+
+RDS (Database Tier in private subnet)
+
+S3 (Static content & backups)
+
+CloudWatch (Monitoring), IAM Roles (EC2 → S3 access)
