@@ -1,0 +1,10 @@
+Operating System (Linux)
+Bash script (Automation)
+Git & GitHub  
+Networking & security 
+Learn any one cloud (AWS,Azure,GCP)
+Infrastructure as a code (Terraform + Ansible)
+COntainerization (Docker)
+Container Orchestration (Kubernets)
+CICD Pipelines (To automate Deploment)
+Monitoring & logging
