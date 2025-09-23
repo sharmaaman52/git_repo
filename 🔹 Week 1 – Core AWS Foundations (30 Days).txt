@@ -2,9 +2,9 @@
 
 Day 1:
 
-Learn AWS Global Infrastructure (Regions, AZs, Edge locations).
+Learn AWS Global Infrastructure (Regions, AZs, Edge locations). -- Done
 
-Setup Free Tier account.
+Setup Free Tier account. -- Done
 
 Create IAM User (with programmatic + console access).
 
@@ -12,27 +12,27 @@ Install & configure AWS CLI.
 
 Day 2:
 
-IAM: Users, Groups, Roles, Policies, MFA.
+IAM: Users, Groups, Roles, Policies, MFA. -- Done
 
 Hands-on: Create IAM role for EC2.
 
 Day 3:
 
-EC2: Launch Linux instance, connect with SSH, assign Elastic IP.
+EC2: Launch Linux instance, connect with SSH, assign Elastic IP. -- Done
 
-Explore instance types & pricing models (On-demand, Spot, Reserved).
+Explore instance types & pricing models (On-demand, Spot, Reserved). -- Done
 
 Day 4:
 
-EBS: Create, attach, detach, resize volumes.
+EBS: Create, attach, detach, resize volumes. -- Done
 
-Take EBS snapshot & restore it.
+Take EBS snapshot & restore it. -- Done
 
 Day 5:
 
-VPC basics: Create VPC, Subnets (Public/Private), Route Table, Internet Gateway.
+VPC basics: Create VPC, Subnets (Public/Private), Route Table, Internet Gateway.-- DOne
 
-Deploy EC2 inside custom VPC.
+Deploy EC2 inside custom VPC. -- Done
 
 🔹 Week 2 – Storage & Databases (Day 6–10)
 
@@ -166,5 +166,6 @@ EC2 (Web Tier) with ALB + Auto Scaling
 RDS (Database Tier in private subnet)
 
 S3 (Static content & backups)
+
 
 CloudWatch (Monitoring), IAM Roles (EC2 → S3 access)
