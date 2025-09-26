@@ -38,15 +38,15 @@ Deploy EC2 inside custom VPC. -- Done
 
 Day 6:
 
-S3 basics: Buckets, Upload/Download files, Versioning, Encryption.
+S3 basics: Buckets, Upload/Download files, Versioning, Encryption. - DOne
 
-Enable Bucket Policies & IAM permissions.
+Enable Bucket Policies & IAM permissions. - Done
 
 Day 7:
 
-S3 advanced: Lifecycle rules, Static Website Hosting, Cross-Region Replication.
+S3 advanced: Lifecycle rules, Static Website Hosting, Cross-Region Replication. - Done
 
-Hands-on: Host static website on S3.
+Hands-on: Host static website on S3. - Done
 
 Day 8:
 
@@ -169,3 +169,4 @@ S3 (Static content & backups)
 
 
 CloudWatch (Monitoring), IAM Roles (EC2 → S3 access)
+
