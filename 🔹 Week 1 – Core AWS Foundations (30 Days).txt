@@ -50,9 +50,9 @@ Hands-on: Host static website on S3. - Done
 
 Day 8:
 
-EFS: Create file system, mount on EC2.
+EFS: Create file system, mount on EC2. - Done
 
-Compare EBS vs EFS vs S3.
+Compare EBS vs EFS vs S3. -- Done
 
 Day 9:
 
@@ -70,9 +70,9 @@ Hands-on: Store & query data with DynamoDB.
 
 Day 11:
 
-Elastic Load Balancer: Classic vs ALB vs NLB.
+Elastic Load Balancer: Classic vs ALB vs NLB. -- Done
 
-Hands-on: Create ALB, attach EC2 targets.
+Hands-on: Create ALB, attach EC2 targets. -- Done
 
 Day 12:
 
@@ -94,7 +94,7 @@ Trusted Advisor (Free checks).
 
 Day 15:
 
-Advanced VPC: NAT Gateway, Bastion Host, VPC Peering, Endpoints.
+Advanced VPC: NAT Gateway, Bastion Host, VPC Peering, Endpoints. -- Done
 
 🔹 Week 4 – DevOps, Serverless & Final Project (Day 16–30)
 
@@ -169,4 +169,5 @@ S3 (Static content & backups)
 
 
 CloudWatch (Monitoring), IAM Roles (EC2 → S3 access)
+
 
