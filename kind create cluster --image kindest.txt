@@ -1,0 +1,39 @@
+kind create cluster --image kindest/node:v1.31.12@sha256:0f5cc49c5e73c0c2bb6e2df56e7df189240d83cf94edfa30946482eb08ec57d2
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s \
+https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/
+  314  kubectl version --client
+  315  curl -Lo ./kind https://kind.sigs.k8s.io/dl/latest/kind-linux-amd64
+  316  chmod +x ./kind
+  317  sudo mv ./kind /usr/local/bin/kind
+  318  kind version
+  319  kind create cluster --image kindest/node:v1.31.12@sha256:0f5cc49c5e73c0c2bb6e2df56e7df189240d83cf94edfa30946482eb08ec57d2
+  320  kubectl get svc
+  321  kubectl get nodes
+  322  kubectl cluster-info --context kind-kind
+  323  kubectl cluster-info dump
+  324  clear
+  325  uname -r
+  326  ip r
+  327  kubectl --version
+  328  kubectl version
+  329  unam e-r
+  330  uname -r
+  331  ip r
+  332  kubectl version --client 
+  333  kubectl --version
+  334  kubectl version
+  335  systemctl status kubernets
+  336  systemctl status kubernet
+  337  history
+  338  kubectl get svc
+  339  kubectl get nodes
+  340  kubectl get pods
+  341  kind create cluster --image kindest/node:v1.31.12@sha256:0f5cc49c5e73c0c2bb6e2df56e7df189240d83cf94edfa30946482eb08ec57d2
+  342  curl -Lo ./kind https://kind.sigs.k8s.io/dl/latest/kind-linux-amd64
+  343  kind create cluster --image kindest/node:v1.31.12@sha256:0f5cc49c5e73c0c2bb6e2df56e7df189240d83cf94edfa30946482eb08ec57d2
+  344  kind cluster start
+  345  history
+  346  kind create cluster --image kindest/node:v1.31.12@sha256:0f5cc49c5e73c0c2bb6e2df56e7df189240d83cf94edfa30946482eb08ec57d2
+  347  kind create cluster --name mycluster
