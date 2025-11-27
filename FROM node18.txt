@@ -1,0 +1,18 @@
+FROM node:18
+
+WORKDIR /app
+
+# 3. Copy dependency files first (better caching)
+COPY package*.json ./
+
+# 4. Install dependencies
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["node", "app.js"]
+
+
+docker run -d --rm  --name Mywebapp03 -p 8082:3000 -v /tmp/aman/:/usr/share/nginx/html aman9372/my_webapp:app03
