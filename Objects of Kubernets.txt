@@ -1,0 +1,130 @@
+Objects of Kubernets :
+
+1. Pod
+2. deployment 
+3. replicaset 
+4. expose/service
+5. Namespace 
+6. Conigmap & secrets 
+7. PV & PVC Storage
+8. Daemonset 
+
+
+✅ 1. Learn Kubernetes Networking (Very Important)
+
+This brings you close to real production environments.
+
+Topics you should cover:
+
+How DNS works in Kubernetes (CoreDNS)
+
+ClusterIP / NodePort / LoadBalancer deep-dive -- Complete
+
+Ingress Controller (NGINX, Traefik)
+
+CNI Plugins (Flannel, Calico, Weave) -- done
+
+NetworkPolicy (security firewall between pods) -- done
+
+🔹 Project: Deploy an app with Ingress + NetworkPolicy restrictions.
+
+
+✅ 2. Kubernetes Storage (Production-level)
+
+Understand storage in cloud + on-prem:
+
+StorageClasses -- complete
+
+Dynamic provisioning -- complete
+
+CSI Drivers -- it is just like driver or plugins to mount/unmount and attach volume. -- complete
+
+StatefulSets with PVC -- complete
+  
+
+🔹 Project: Deploy MySQL or PostgreSQL using StatefulSet + PVC.
+NodeSelector / NodeAffinity
+
+✅ 3. Kubernetes Security (Very Important for Interviews)
+
+Learn:
+
+RBAC (Role, RoleBinding, ClusterRole)
+
+ServiceAccounts
+
+Pod Security Admission (PSA)
+
+Secrets Encryption
+
+Image security (Trivy, Clair scanning)
+
+NetworkPolicies
+
+Seccomp / AppArmor / RuntimeClass
+
+🔹 Project: Create a secure namespace with RBAC + PSA.
+
+✅ 4. Learn Scaling & Performance
+
+Horizontal Pod Autoscaler (HPA)- Done
+
+Vertical Pod Autoscaler (VPA) - Done
+
+Cluster Autoscaler  -- done
+
+Resource Requests & Limits - DOne
+
+Troubleshooting pod OOMKilled & CPU throttling - Done
+
+🔹 Project: Create HPA using CPU-based auto-scaling.
+
+✅ 5. Observability: Logging, Monitoring, Alerting
+
+This is must for real-world Kubernetes.
+
+Learn:
+
+Prometheus + Grafana
+
+Loki / Elasticsearch
+
+Fluentd / Promtail / Filebeat
+
+Metrics Server
+
+Alertmanager
+
+🔹 Project: Build a full monitoring stack (Prometheus + Grafana + Loki).
+
+✅ 6. Helm (Package Manager for Kubernetes)
+
+Helm is used in all companies.
+
+Learn:
+
+Helm charts
+
+Templates
+
+Values.yaml
+
+How to deploy apps using Helm
+
+How to create your own chart
+
+🔹 Project: Build a Helm chart for your web application.
+
+✅ 7. GitOps (Real-world CI/CD with Kubernetes)
+
+Learn:
+
+ArgoCD
+
+Application Sync
+
+Continuous Deployment
+
+GitOps flow
+
+🔹 Project: Deploy app using GitOps + ArgoCD.
