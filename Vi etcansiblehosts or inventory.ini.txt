@@ -1,0 +1,34 @@
+Vi /etc/ansible/hosts or inventory.ini
+
+[Webservers]
+1
+2
+3
+4
+5
+
+Save & exit
+
+vi apache.yml 
+
+---
+- name: install apache on web server
+  hosts: Webservers
+  become: yes
+
+  tasks:
+  
+  - name: Install apache
+    yum:
+     name: apache
+     state: present
+    when: ansible_os_family =="RedHat"
+
+  - name: Install nginx
+    apt:
+     name: nginx
+     state: present
+    when: ansible_os_family == "ubuntu"
+
+## ansible-playbook -i /unix/Aman/aman.txt playbook.yml --limit [webserver1]
+## ansible-playbook -i /unix/Aman/aman.txt playbook.yml --skip-tags "setup"
