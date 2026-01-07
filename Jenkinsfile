@@ -1,47 +1,52 @@
 pipeline {
-    agent any
+    agent { label 'ec2' }
+
+    parameters {
+        choice(name: 'ENV', choices: ['dev', 'qa'], description: 'Select Environment')
+    }
 
     environment {
-        IMAGE_NAME = "myapp"
-        CONTAINER_NAME = "myapp_container"
+        APP_NAME = "sample-app"
     }
 
     stages {
-        stage('Checkout') {
+
+        stage('Checkout Code') {
             steps {
-                git 'https://github.com/sharmaaman52/git_repo.git'
+                git branch: 'main',
+                    url: 'https://github.com/sharmaaman52/git_repo.git'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Build') {
             steps {
                 sh '''
-                  echo "Building Docker image..."
-                  docker build -t $IMAGE_NAME .
+                echo "Building $APP_NAME for $ENV"
+                ./app.sh
                 '''
             }
         }
 
-        stage('Run Docker Container') {
+        stage('Test') {
             steps {
-                sh '''
-                  echo "Stopping old container (if exists)..."
-                  docker stop $CONTAINER_NAME || true
-                  docker rm $CONTAINER_NAME || true
-
-                  echo "Running new container..."
-                  docker run -d --name $CONTAINER_NAME -p 3000:3000 $IMAGE_NAME
-                '''
+                sh './test.sh'
             }
         }
+
     }
 
     post {
         success {
-            echo 'Docker container is up and running!'
+            echo 'Build Successful'
+            archiveArtifacts artifacts: 'build/*.txt'
         }
+
         failure {
-            echo 'Build failed. Check logs.'
+            echo 'Build Failed'
+        }
+
+        always {
+            cleanWs()
         }
     }
 }
