@@ -22,6 +22,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Building $APP_NAME for $ENV"
+                chmod +x app.sh
                 ./app.sh
                 '''
             }
@@ -29,7 +30,10 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh './test.sh'
+                sh ''' 
+                chmod +x test.sh
+                ./test.sh
+                '''
             }
         }
 
