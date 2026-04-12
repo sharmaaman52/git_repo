@@ -1,0 +1,164 @@
+🐙 GitHub Interview Questions & Topics
+🧠 1. Git vs GitHub (VERY BASIC 🔥)
+
+👉 Git vs GitHub
+
+Git = version control tool
+GitHub = cloud platform to host Git repositories
+
+👉 Interview Q:
+
+Difference between Git and GitHub?
+Can we use Git without GitHub?
+🌿 2. Basic Git Commands (Must Know)
+git clone
+git add
+git commit
+git push
+git pull
+
+👉 Interview Q:
+
+Difference between git pull vs git fetch
+What does git commit do?
+🌳 3. Branching & Merging (IMPORTANT 🔥)
+Create branch:
+git checkout -b feature-branch
+Merge:
+git merge feature-branch
+
+👉 Interview Q:
+
+What is branching?
+Difference between merge vs rebase?
+🔀 4. Merge vs Rebase (Very Common)
+Merge → keeps history
+Rebase → rewrites history
+
+👉 Interview Q:
+
+When to use rebase?
+Risk of rebase?
+🔁 5. GitHub Workflow
+Developer workflow:
+Clone → Branch → Commit → Push → Pull Request → Merge
+
+👉 Interview Q:
+
+What is Pull Request (PR)?
+Code review process?
+🔐 6. Access Control & Security
+Public vs Private repo
+Collaborators
+Teams & permissions
+
+👉 Interview Q:
+
+How do you restrict access to repo?
+What is protected branch?
+🔔 7. Webhooks (Important for DevOps 🔥)
+Trigger external systems (like Jenkins)
+
+👉 Interview Q:
+
+What is webhook?
+Webhook vs polling?
+⚙️ 8. GitHub Actions (VERY IMPORTANT 🔥)
+
+CI/CD inside GitHub
+
+Example Flow:
+Push code → pipeline runs → build/test/deploy
+
+👉 Interview Q:
+
+What is GitHub Actions?
+What is workflow file?
+Where is it stored?
+Workflow File Location:
+.github/workflows/main.yml
+🔑 9. Secrets Management
+Store credentials securely
+
+👉 Interview Q:
+
+Where do you store passwords in GitHub?
+How secrets used in pipeline?
+📦 10. GitHub Container Registry
+
+👉 GitHub Container Registry
+
+Store Docker images
+
+👉 Interview Q:
+
+Have you used GitHub registry?
+Difference between Docker Hub & GHCR?
+📊 11. Issues & Project Management
+Issues
+Projects
+Milestones
+
+👉 Interview Q:
+
+How do you track bugs in GitHub?
+🛠️ 12. Forking & Open Source
+Fork repo
+Create PR
+
+👉 Interview Q:
+
+What is fork?
+Fork vs clone?
+🔄 13. Conflict Resolution (VERY IMPORTANT 🔥)
+
+👉 Happens when multiple users edit same file
+
+👉 Interview Q:
+
+How to resolve merge conflict?
+🧩 14. Tags & Releases
+Tag versions:
+git tag v1.0
+
+👉 Interview Q:
+
+What is tag?
+Difference between tag & branch?
+🚀 15. Real DevOps Integration
+GitHub + Jenkins
+GitHub + Kubernetes
+GitHub + Docker
+
+👉 Interview Q:
+
+How GitHub integrates with CI/CD?
+Explain your workflow
+🎯 Top 20 GitHub Interview Questions (Quick Revision)
+What is Git vs GitHub?
+What is repository?
+What is branch?
+What is pull request?
+What is merge conflict?
+Difference: merge vs rebase
+What is fork?
+What is clone?
+What is GitHub Actions?
+What is webhook?
+What is protected branch?
+What is tagging?
+What is commit?
+Difference: pull vs fetch
+How to resolve conflicts?
+How to revert commit?
+What is stash?
+How to secure repo?
+What is CI/CD in GitHub?
+Explain your Git workflow
+💡 Real-Time Scenario Questions (IMPORTANT)
+
+👉 Be ready to answer like:
+
+“We used GitHub for source control and GitHub Actions for CI/CD”
+“Created feature branches and used PR for code review”
+“Integrated GitHub with Jenkins using webhook”
