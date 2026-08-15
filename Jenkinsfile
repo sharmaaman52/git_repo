@@ -1,56 +1,33 @@
 pipeline {
-    agent { label 'ec2' }
-
-    parameters {
-        choice(name: 'ENV', choices: ['dev', 'qa'], description: 'Select Environment')
-    }
-
-    environment {
-        APP_NAME = "sample-app"
-    }
+    agent any
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/sharmaaman52/git_repo.git'
-            }
-        }
-
         stage('Build') {
             steps {
-                sh '''
-                echo "Building $APP_NAME for $ENV"
-                chmod +x app.sh
-                ./app.sh
-                '''
+                echo '===== BUILD ====='
+                sh 'hostname'
+                sh 'whoami'
+                sh 'pwd'
             }
         }
 
         stage('Test') {
             steps {
-                sh ''' 
-                chmod +x test.sh
-                ./test.sh
-                '''
+                echo '===== TEST ====='
+                sh 'echo "Testing application..."'
+                sh 'echo "Tests passed"'
             }
         }
 
-    }
-
-    post {
-        success {
-            echo 'Build Successful'
-            archiveArtifacts artifacts: 'build/*.txt'
+        stage('Package') {
+            steps {
+                echo '===== PACKAGE ====='
+                sh 'mkdir -p build'
+                sh 'echo "Jenkins Pipeline Artifact" > build/app.txt'
+                sh 'cat build/app.txt'
+            }
         }
 
-        failure {
-            echo 'Build Failed'
-        }
-
-        always {
-            cleanWs()
-        }
     }
 }
