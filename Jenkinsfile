@@ -1,67 +1,50 @@
 pipeline {
-    agent any
 
-    parameters {
-        choice(
-            name: 'ENVIRONMENT',
-            choices: ['dev', 'qa', 'prod'],
-            description: 'Select deployment environment'
-        )
-
-        string(
-            name: 'VERSION',
-            defaultValue: '1.0',
-            description: 'Enter application version'
-        )
-    }
+    agent none
 
     stages {
-
-        stage('Build') {
+        
+        stage('gitcheckout') {
+            agent {
+                label 'linux-agent'
+            }
+            
             steps {
-                echo "===== BUILD ====="
-                echo "Environment: ${params.ENVIRONMENT}"
-                echo "Version: ${params.VERSION}"
-
-                sh 'hostname'
-                sh 'whoami'
+                checkout scm
             }
         }
 
-        stage('Test') {
-            steps {
-                echo "===== TEST ====="
-                echo "Testing version ${params.VERSION}"
-                echo "Environment: ${params.ENVIRONMENT}"
+        stage('Deploy to Kubernetes') {
+
+         agent {
+            label 'linux-agent'
+         }
+
+         steps {
+
+            withKubeConfig(
+            credentialsId: 'kubernetes-cred'
+            ) {
+
+            sh '''
+                echo "===== DEPLOYING TO KUBERNETES ====="
+
+                kubectl apply -f deployment.yaml
+                kubectl apply -f service.yaml
+
+                echo "===== ROLLOUT STATUS ====="
+
+                kubectl rollout status deployment/jenkins-demo
+
+                echo "===== POD STATUS ====="
+
+                kubectl get pods -l app=jenkins-demo -o wide
+
+                echo "===== SERVICE ====="
+
+                kubectl get service jenkins-demo-service
+            '''
             }
-        }
-
-        stage('Package') {
-            steps {
-                echo "===== PACKAGE ====="
-
-                sh 'mkdir -p build'
-
-                sh 'echo "Application: my-application" > build/app.txt'
-                sh 'echo "Environment: $ENVIRONMENT" >> build/app.txt'
-                sh 'echo "Version: $VERSION" >> build/app.txt'
-
-                sh 'cat build/app.txt'
-            }
-        }
-    }
-
-    post {
-        always {
-            echo 'Pipeline execution completed.'
-        }
-
-        success {
-            echo 'Pipeline completed successfully.'
-        }
-
-        failure {
-            echo 'Pipeline failed.'
         }
     }
 }
