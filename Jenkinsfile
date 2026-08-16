@@ -15,6 +15,63 @@ pipeline {
             }
         }
 
+        stage('Build Docker Image') {
+
+            agent {
+                label 'linux-agent'
+            }
+
+            steps {
+                sh '''
+                    echo "===== BUILDING DOCKER IMAGE ====="
+
+                    docker build \
+                    -t aman9372/jenkins-demo:${BUILD_NUMBER} .
+                '''
+            }
+        }
+
+        stage('Login to Docker Hub') {
+
+            agent {
+                label 'linux-agent'
+            }
+
+            steps {
+
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'dockerhub-cred',
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_TOKEN'
+                    )
+                ]) {
+
+                    sh '''
+                        echo "$DOCKER_TOKEN" | docker login \
+                        -u "$DOCKER_USER" \
+                        --password-stdin
+                    '''
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+
+            agent {
+                label 'linux-agent'
+            }
+
+            steps {
+
+                sh '''
+                    echo "===== PUSHING IMAGE ====="
+
+                    docker push aman9372/jenkins-demo:${BUILD_NUMBER}
+                '''
+            }
+        }
+
         stage('Deploy to Kubernetes') {
 
             agent {
@@ -33,6 +90,11 @@ pipeline {
                         kubectl apply -f deployment.yaml
                         kubectl apply -f service.yaml
 
+                        echo "===== UPDATING IMAGE ====="
+
+                        kubectl set image deployment/jenkins-demo \
+                        jenkins-demo=aman9372/jenkins-demo:${BUILD_NUMBER}
+
                         echo "===== ROLLOUT STATUS ====="
 
                         kubectl rollout status deployment/jenkins-demo
@@ -41,9 +103,12 @@ pipeline {
 
                         kubectl get pods -l app=jenkins-demo -o wide
 
-                        echo "===== SERVICE ====="
+                        echo "===== DEPLOYED IMAGE ====="
 
-                        kubectl get service jenkins-demo-service
+                        kubectl get deployment jenkins-demo \
+                        -o jsonpath='{.spec.template.spec.containers[0].image}'
+
+                        echo
                     '''
                 }
             }
@@ -51,8 +116,13 @@ pipeline {
     }
 
     post {
-        always {
-            echo "===== PIPELINE COMPLETED ====="
+
+        success {
+            echo "===== CI/CD PIPELINE SUCCESSFUL ====="
+        }
+
+        failure {
+            echo "===== CI/CD PIPELINE FAILED ====="
         }
     }
 }
