@@ -1,0 +1,34 @@
+Kubernetes Interview Question :
+
+Que : what check do you perform after upgrade ?
+Ans : First I have checked all the nodes are running as expected than i checked the application pods are running as expected. 
+after that i need to verify controle plane components & CNI Plugins CSI driver CoreDNS kubeletes are running successfully. 
+than i test application connectivity with service & expose externally or not.
+
+Que : What challenges do you encounter during upgrade ?
+Ans : I was facing the compatibility issue, deprecated API and pod, node become unhealthy after the upgrade 
+sometime application compatibility issue, network plugins not working.
+i reduce the challenges by sequencially upgrade the node and validate all components after upgrade. 
+ 
+Que : In cluster How you verify that everything working correctly ?
+Ans : first i have to check my node is running successfully and pod become healthy on server
+by command kubectl get node & kubectl get pod 
+second i need to check control plane component is working fine API Server. pod networking CNI plugins
+CoreDNS. After that i need to check application & service running successfully.
+
+Que : Have you ever created a Kubernetes cluster in your VMware infra ? what steps would you consider ?
+Ans : Yes, I have worked kubeadm based kubernetes cluster in VMware environment. first we provision VMware for control plane & worker node 
+after assign the static IP for VM. than i configure OS prerequisite, networking, disable swap install kernel modules like overlay and br_netfilter 
+and sysctl parameter and make sure the port is open in firewall liek API - 6445, scheduler - 10253 , etc 10279-10280
+
+After that i would install container runtime called containerd and kubelet & kubeadm & kubectl than i initialize the control plane by CIDR 
+kubeadm init command . 
+than i would configure CNI Plugins calico & join the worker node 
+
+Que: Have you ever created a local user for bastion host & give it all permission. Please let me know the steps ?
+Ans: “Yes, I have created local users on bastion hosts for controlled administrative access. First, I create the user and configure SSH key-based authentication. Then I assign the required Linux permissions, preferably through restricted sudo rather than unrestricted root access. I configure firewall or security-group rules so that the bastion is the controlled entry point to private infrastructure. If the user needs Kubernetes access, I configure a separate kubeconfig and Kubernetes RBAC Role/RoleBinding based on the user's requirements. Finally, I test both Linux and Kubernetes permissions and regularly review the access.”
+
+Que : OK. Fine I have my 1 control plane & 2 worker node cluser in AWS. which i create manually. 
+Now i want to configure autoscaling policies for my kubernetes cluster
+
+
